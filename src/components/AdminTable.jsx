@@ -96,7 +96,7 @@ export const AdminTable = () => {
               <h2>Usuários</h2>
             </article>
             <section className={styles.groupContainer}>
-              <Link href="admin/users/createUser" className={styles.createContainer}>
+              <Link href="admin/users/createUserAdmin" className={styles.createContainer}>
                 <i className='bx bx-plus bx-sm'></i>
                 Cadastro de Usuário
               </Link>

@@ -7,7 +7,7 @@ import axios from 'axios';
 import React from 'react'
 
 
-export default function CreateUser() {
+export default function CreateUserAdmin() {
   const router = useRouter();
 
   const formFields = [
@@ -39,12 +39,27 @@ export default function CreateUser() {
       label: 'Senha:', 
       required: true 
     },
+    { 
+      id: 5, 
+      name: 'author_level', 
+      type: 'checkbox', 
+      label: 'Admin', 
+      value: 'admin' 
+    },
+    { 
+      id: 6, 
+      name: 'author_status', 
+      type: 'checkbox', 
+      label: 'Ativo', 
+      value: 'on', 
+      checked: true 
+    }
   ];
 
   const handleSubmit = async (formData) => {
     try {
-      formData.author_level = formData.author_level = 'user';
-      formData.author_status = formData.author_status = true;
+      formData.author_level = formData.author_level ? 'admin' : 'user';
+      formData.author_status = formData.author_status || false;
 
       const response = await axios.post("http://localhost:8080/api/users/cadastro", formData);
 
@@ -52,12 +67,13 @@ export default function CreateUser() {
       router.push(`/`);
 
     } catch (error) {
-      console.error('Erro:', error.message);
+      console.error('Erro ao cadastrar usuário:', error.message);
     }
   };
 
   return (
     <>
+      <PrivateRoute allowedRoles={'admin'}>
         <NavBar />
         <Form
           type={"User"}
@@ -67,6 +83,7 @@ export default function CreateUser() {
           onSubmit={handleSubmit}
         />
         <Footer />
+      </PrivateRoute>
     </>
   )
 }

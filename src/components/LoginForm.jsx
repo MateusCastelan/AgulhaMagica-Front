@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
+import Link from 'next/link';
 
 import styles from '@/styles/LoginForm.module.css'
 
@@ -64,7 +65,10 @@ export const LoginForm = () => {
         <section className={styles.registerLink}>
           <p>
             Não tem uma conta?
-            <a href="#">Cadastrar</a>
+            <Link href="admin/users/createUser" className={styles.createContainer}>
+                <i className='bx bx-plus bx-sm'></i>
+                Cadastrar
+            </Link>
           </p>
         </section>
       </form>
