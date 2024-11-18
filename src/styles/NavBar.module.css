@@ -4,8 +4,7 @@
   align-items: center;
   width: 100%;
   padding: 30px 0;
-  background-color: #FFF;
-  box-shadow: 1px 1px 20px #000;
+  background-color: #97ACC1;
 }
 
 .logo {
@@ -20,7 +19,7 @@
 }
 
 #event {
-  color: #A876E6;
+  color: #FFFF;
   margin-left: 5px;
 }
 
@@ -44,7 +43,7 @@
 
 /* Para fazer o efeito de linha no hover */
 .navContainer nav ul li:hover {
-  color: #A876E6;
+  color: #FFFF;
   font-weight: 500;
   letter-spacing: 0.7px;
 }
@@ -52,7 +51,7 @@
 .navContainer nav ul li:after {
   content: '';
   display: block;
-  border-bottom: solid 2px #A876E6;
+  border-bottom: solid 2px #FFFF;
   border-radius: 2px;
   transform: scaleX(0);
   transition: transform 0.3s ease-in-out;

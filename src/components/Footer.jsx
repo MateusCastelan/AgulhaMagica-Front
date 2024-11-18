@@ -6,11 +6,15 @@ export const Footer = () => {
   return (
     <footer className={styles.footerContainer}>
       <section>
-        <i className='bx bxl-twitter bx-md'></i>
-        <i className='bx bxl-instagram bx-md'></i>
-        <i className='bx bxl-youtube bx-md'></i>
+        <p>Entre em contato: <br></br>(48) 0000-0000</p>
       </section>
-      <p>Todos os direitos reservados © 2023</p>
+      <section className={styles.footerLogo}>
+       <img src='/Logo.png' alt='logo'></img>
+        <p>Todos os direitos reservados © 2024</p>
+      </section>
+      <section>
+        <img src="/CestaCroche.png" alt="CestaCroche"/>
+      </section>
     </footer>
   )
 }

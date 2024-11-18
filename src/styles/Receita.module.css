@@ -1,0 +1,92 @@
+.receita {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.titulo {
+  text-align: center; 
+  font-size: 36px;
+  font-weight: 400;
+  padding: 20px;
+  background-color: #98BFBE;
+  margin-top: 60px;
+  border-radius: 25px;
+  margin-bottom: 40px;  
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 60px;
+  width: 100%;
+  gap: 20px;  
+  margin-top: 40px;  
+}
+
+.imagemContainer {
+  position: relative; 
+  width: 100%; 
+  max-width: 300px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px; 
+  background-color: #98BFBE; 
+  border-radius: 15px; 
+  box-sizing: border-box; 
+} 
+  
+.imagem { 
+  width: 100%; 
+  height: 100%;
+  border-radius: 15px; 
+  display: block; 
+  position: relative;
+  z-index: 1; 
+}
+
+.material {
+  max-width: 300px; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  
+  padding: 20px;
+  
+ 
+}
+
+.material h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: left; 
+}
+
+.material p {
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: left; 
+}
+
+.receitaGeral {
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  max-width: 600px;
+  text-align: left; 
+ }
+
+.receitaGeral h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.receitaGeral p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 10px 0; 
+}

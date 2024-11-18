@@ -10,15 +10,21 @@ export const NavBar = () => {
   return (
     <header className={styles.headerContainer}>
       <section className={styles.logo}>
-        <h1>KPOP</h1>
-        <h1 id={styles.event}>EVENT</h1>
+        <img src='/Logo.png' alt='logo'></img>
       </section>
       <section className={styles.navContainer}>
         <nav>
           <ul>
             <Link href="/">
-              <li>Home</li>
+              <li>Tutorial de Pontos</li>
             </Link>
+            <Link href="/contador">
+              <li>Contador</li>
+            </Link>
+            <Link href="/geral">
+              <li>Receitas</li>
+            </Link>
+
             {user ? (
               <>
                 {(
@@ -33,6 +39,8 @@ export const NavBar = () => {
                 <li>Login</li>
               </Link>
             )}
+
+
           </ul>
         </nav>
       </section>
