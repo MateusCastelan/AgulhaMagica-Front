@@ -170,6 +170,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: 500ms background-position ease-in-out;
+  z-index: 1001;
 }
 
 .btn:hover{
