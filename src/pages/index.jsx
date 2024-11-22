@@ -30,18 +30,12 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <main className={styles.homeContainer}>
-        <article className={styles.title}>
-          <h1>Kpop Events</h1>
-        </article>
         <BarraPesquisa />
+
         <FeaturedArticles
           articles={articles}
         />
-        <LikedArticles
-          articles={articles}
-        />
-      </main>
+
       <Footer />
     </>
   )

@@ -9,7 +9,7 @@ export const Footer = () => {
         <p>Entre em contato: <br></br>(48) 0000-0000</p>
       </section>
       <section className={styles.footerLogo}>
-       <img src='/Logo.png' alt='logo'></img>
+        <a href="/"><img src='/Logo.png' alt='logo'></img></a>
         <p>Todos os direitos reservados © 2024</p>
       </section>
       <section>

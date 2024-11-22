@@ -1,0 +1,45 @@
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+
+}
+
+.main p{
+    font-size: 16px;
+    padding: 0px 80px 0px 80px;
+}
+
+.main h1{
+    font-size: 36px;
+    font-weight: 400;
+    padding: 20px;
+    background-color: #F9907D;
+    border-radius: 25px;
+}
+
+
+.tutoriais{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 25px;
+    justify-content: center;
+}
+
+.tutoriais article{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tutoriais article h2{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 24px;
+}

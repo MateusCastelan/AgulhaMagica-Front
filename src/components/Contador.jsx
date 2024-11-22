@@ -10,7 +10,9 @@ export const Contador = () => {
     }
 
     const descontarNum = () => {
-        setContador(contador - 1)
+        if(contador>0){
+            setContador(contador - 1)
+        }
     }
 
     const restaurar = () => {
@@ -42,7 +44,7 @@ export const Contador = () => {
 
             </section>
 
-            
+
         </div>
     );
 

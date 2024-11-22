@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  width: 100%;
+  padding: 60px;
 }
 
 .titulo {
@@ -12,9 +11,8 @@
   font-weight: 400;
   padding: 20px;
   background-color: #98BFBE;
-  margin-top: 60px;
   border-radius: 25px;
-  margin-bottom: 40px;  
+  margin-bottom: 40px;  /* Adicionado espaçamento abaixo do título */
 }
 
 .section {
@@ -24,69 +22,88 @@
   justify-content: center;
   margin-bottom: 60px;
   width: 100%;
-  gap: 20px;  
-  margin-top: 40px;  
+  gap: 40px;  /* Aumentado o espaçamento entre os itens */
 }
 
-.imagemContainer {
+.imagemContainer { 
   position: relative; 
   width: 100%; 
   max-width: 300px; 
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px; 
-  background-color: #98BFBE; 
-  border-radius: 15px; 
-  box-sizing: border-box; 
+  padding: 10px; /* Adiciona preenchimento para a borda */
+  background-color: #98BFBE; /* Define a cor da borda */
+  border-radius: 15px; /* Mantém o arredondamento da borda */
+  box-sizing: border-box; /* Inclui o preenchimento e a borda no tamanho total */
 } 
   
 .imagem { 
   width: 100%; 
   height: 100%;
-  border-radius: 15px; 
+  border-radius: 15px; /* Garante que a imagem siga o arredondamento da borda */
   display: block; 
   position: relative;
   z-index: 1; 
 }
 
+
 .material {
   max-width: 300px; 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;  
-  padding: 20px;
-  
- 
+  align-items: flex-start;  /* Alinha o conteúdo à esquerda */
+  background-color: #fff; /* Fundo branco */
+  padding: 20px; /* Adiciona preenchimento */
+  border-radius: 15px; /* Borda arredondada */
+  border: 2px solid #98BFBE; /* Borda sólida */
 }
 
 .material h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  text-align: left; 
+  text-align: left; /* Alinha o texto à esquerda */
 }
 
 .material p {
   font-size: 18px;
   line-height: 1.5;
-  text-align: left; 
+  margin: 10px 0; /* Adiciona espaçamento entre os parágrafos */
+  text-align: left; /* Alinha o texto à esquerda */
 }
 
-.receitaGeral {
-  padding: 20px;
-  margin: 10px;
-  width: 100%;
-  max-width: 600px;
-  text-align: left; 
- }
-
-.receitaGeral h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
+.receitageral{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  
 }
 
-.receitaGeral p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 10px 0; 
+.autor{
+  font-size: small;
+}
+
+.icones {
+  display: flex;
+  justify-content: center;  
+  margin-top: 10px;
+}
+
+.icones span {
+  margin: 0 5px;
+}
+
+button.likeButton {
+  background-color: #98BFBE;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+button.likeButton:hover {
+  background-color: #7aa8a7;
 }

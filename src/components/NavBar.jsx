@@ -10,12 +10,12 @@ export const NavBar = () => {
   return (
     <header className={styles.headerContainer}>
       <section className={styles.logo}>
-        <img src='/Logo.png' alt='logo'></img>
+        <a href="/"><img src='/Logo.png' alt='logo'></img></a>
       </section>
       <section className={styles.navContainer}>
         <nav>
           <ul>
-            <Link href="/">
+            <Link href="/tutorialpontos">
               <li>Tutorial de Pontos</li>
             </Link>
             <Link href="/contador">
