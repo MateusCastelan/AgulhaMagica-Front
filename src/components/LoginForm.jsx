@@ -65,11 +65,10 @@ export const LoginForm = () => {
         <section className={styles.registerLink}>
           <p>
             Não tem uma conta?
-            <Link href="admin/users/createUser" className={styles.createContainer}>
-                <i className='bx bx-plus bx-sm'></i>
-                Cadastrar
-            </Link>
           </p>
+          <Link href="admin/users/createUser" className={styles.createContainer}>
+            Cadastrar
+          </Link>
         </section>
       </form>
     </article>

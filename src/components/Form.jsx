@@ -51,9 +51,9 @@ export const Form = ({ type, formTitle, formFields, buttonLabel, onSubmit }) => 
     return formType === 'Article' ? styles.mainCtnArticle : styles.mainContainer;
   };
 
-  const getContainerClassName = (formType) => {
-    return formType === 'Article' ? styles.cntArticle : styles.container;
-  };
+  // const getContainerClassName = (formType) => {
+  //   return formType === 'Article' ? styles.cntArticle : styles.container;
+  // };
 
   const getSectionClassName = (field) => {
     if (field.type === 'checkbox') {
@@ -75,7 +75,7 @@ export const Form = ({ type, formTitle, formFields, buttonLabel, onSubmit }) => 
 
   return (
     <section className={getMainContainerClassName(type)}>
-      <article className={getContainerClassName(type)}>
+      <article className={styles.container}>
         <form
           method="post"
           encType="multipart/form-data"
@@ -124,15 +124,17 @@ export const Form = ({ type, formTitle, formFields, buttonLabel, onSubmit }) => 
               )}
               {field.type === 'textarea' && (
                 <>
-                  <label htmlFor={field.name}>{field.label}</label>
-                  <Editor
-                    editorState={editorStates[field.name]}
-                    onEditorStateChange={(editorState) =>
-                      handleEditorChange(field.name, editorState)
-                    }
-                    wrapperClassName={styles.editorWrapper}
-                    editorClassName={styles.editor}
-                  />
+                  <div className={styles.editorContainer}>
+                    <label htmlFor={field.name}>{field.label}</label>
+                    <Editor
+                      editorState={editorStates[field.name]}
+                      onEditorStateChange={(editorState) =>
+                        handleEditorChange(field.name, editorState)
+                      }
+                      wrapperClassName={styles.editorWrapper}
+                      editorClassName={styles.editor}
+                    />
+                  </div>
                 </>
               )}
             </section>

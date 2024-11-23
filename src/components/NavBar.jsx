@@ -15,15 +15,15 @@ export const NavBar = () => {
       <section className={styles.navContainer}>
         <nav>
           <ul>
+            <Link href="/">
+              <li>Receitas</li>
+            </Link>
             <Link href="/tutorialpontos">
               <li>Tutorial de Pontos</li>
             </Link>
             <Link href="/contador">
               <li>Contador</li>
-            </Link>
-            <Link href="/geral">
-              <li>Receitas</li>
-            </Link>
+            </Link> 
 
             {user ? (
               <>
@@ -39,7 +39,6 @@ export const NavBar = () => {
                 <li>Login</li>
               </Link>
             )}
-
 
           </ul>
         </nav>
