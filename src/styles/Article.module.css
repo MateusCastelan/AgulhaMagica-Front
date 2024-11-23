@@ -1,21 +1,28 @@
 .receita {
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  width: 100%;
+  padding: 60px;
 }
 
 .titulo {
-  text-align: center;
+  text-align: center; 
   font-size: 36px;
   font-weight: 400;
   padding: 20px;
-  background-color: #98bfbe;
-  margin-top: 60px;
+  background-color: #98BFBE;
   border-radius: 25px;
-  margin-bottom: 40px;
+  margin-bottom: 40px;  /* Adicionado espaçamento abaixo do título */
+}
+
+.imgMaterialContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 60px;
+  width: 100%;
+  gap: 40px;  /* Aumentado o espaçamento entre os itens */
 }
 
 .imagemContainer {
@@ -41,11 +48,14 @@
 }
 
 .material {
-  max-width: 300px;
+  min-width: 300px; 
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start; 
+  background-color: #fff; 
+  padding: 20px; 
+  border-radius: 15px; 
+  border: 2px solid #98BFBE; 
 }
 
 .material h2 {
@@ -61,33 +71,57 @@
 }
 
 .receitaGeral {
-  padding: 20px;
-  margin: 10px;
-  width: 100%;
-  max-width: 600px;
-  text-align: left;
-}
-
-.receitaGeral h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.receitaGeral p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 10px 0;
-}
-
-.icones {
-  margin-top: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  width: 95%;
+  margin: 20px;
+}
+
+.autor {
+  display: flex;
   align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.autor div {
+  display: flex;
   gap: 10px;
 }
 
+.autor a:hover {
+  transition: all 0.4s ease 0s;
+  font-weight: bold;
+  color: #281dfd;
+  transform: translateY(-2px);
+}
+
+.dataTitle {
+  font-weight: bold;
+}
+
+.icones {
+  display: flex;
+  justify-content: center;  
+  margin-top: 10px;
+}
+
 .icones span {
-  font-size: 24px;
-  color: red;
+  margin: 0 5px;
+}
+
+.likeButton {
+  background-color: #98BFBE;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.likeButton:hover {
+  background-color: #7aa8a7;
 }

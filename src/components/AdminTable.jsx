@@ -51,12 +51,12 @@ export const AdminTable = () => {
       <section className={styles.container}>
         {/* Articles Section */}
         <article className={styles.subTitle}>
-          <h2>Artigos</h2>
+          <h2>Receitas</h2>
         </article>
         <section className={styles.groupContainer}>
           <Link href="/admin/articles/createArticle" className={styles.createContainer}>
             <i className='bx bx-plus bx-sm'></i>
-            Cadastro de Artigo
+            Cadastro de Receita
           </Link>
           <section className={styles.tableContainer}>
             <table>
