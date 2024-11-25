@@ -4,25 +4,22 @@ import { Footer } from '@/components/Footer';
 import { SearchResults } from '@/components/SearchResults';
 import { BarraPesquisa } from '@/components/BarraPesquisa';
 
-import styles from '@/styles/PagesMain.module.css'
+import styles from '@/styles/PagesMain.module.css';
 
 export default function Search() {
-
   const router = useRouter();
-  const { keywords } = router.query;
+  const { keywords, difficulty, type } = router.query;
 
   return (
     <>
       <NavBar />
       <main className={styles.homeContainer}>
         <article className={styles.title}>
-          <h1>Kpop Events</h1>
         </article>
         <BarraPesquisa />
-        <SearchResults keywords={keywords} />
+        <SearchResults keywords={keywords} difficulty={difficulty} type={type} />
       </main>
       <Footer />
     </>
   );
 };
-

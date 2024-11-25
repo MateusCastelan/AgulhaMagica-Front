@@ -1,16 +1,21 @@
 import { React, useState, useEffect } from 'react';
 import Link from 'next/link';
-import axios from 'axios'
+import axios from 'axios';
 
 import styles from '@/styles/ArticleHome.module.css';
 
-export const SearchResults = ({ keywords }) => {
+export const SearchResults = ({ keywords, difficulty, type }) => {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     const fetchSearchResults = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/articles/search?keywords=${encodeURIComponent(keywords)}`);
+        const params = new URLSearchParams();
+        if (keywords) params.append('keywords', keywords); 
+        if (difficulty) params.append('difficulty', difficulty);
+        if (type) params.append('type', type);
+
+        const response = await axios.get(`http://localhost:8080/api/articles/search?${params.toString()}`);
         setSearchResults(response.data);
       } catch (error) {
         console.error('Erro ao buscar resultados da pesquisa:', error.message);
@@ -18,31 +23,33 @@ export const SearchResults = ({ keywords }) => {
     };
 
     fetchSearchResults();
-  }, [keywords]);
+  }, [keywords, difficulty, type]);
 
   return (
-    <>
-      <section className={styles.container}>
-        <article className={styles.subTitle}>
-          <h2>Resultados da Pesquisa</h2>
-        </article>
-        <section className={styles.groupContainer}>
-          {searchResults.map((result) => (
+    <section className={styles.container}>
+      <article className={styles.subTitle}>
+        <h2>Resultados da Pesquisa</h2>
+      </article>
+      <section className={styles.groupContainer}>
+        {searchResults.length > 0 ? (
+          searchResults.map((result) => (
             <Link key={result._id} href={`admin/articles/read/${result._id}`}>
-              <section className={styles.newsContainer}>
-                <section className={styles.imgContainer}>
-                  <img src={result.kb_image || '/bg.jpg'} alt="Imagem" />
+              <section className={styles.card}>
+                <section className={styles.imageContainer}>
+                  <img src={result.article_img || '/bg.jpg'} alt="Imagem da Receita" />
                 </section>
-                <article className={styles.infoContainer}>
+                <article className={styles.cardInfo}>
+                  <span className={styles.tag}>{result.article_difficulty}</span>
                   <h3>{result.article_title}</h3>
-                  <p>{result.article_summary}</p>
+                  <button>&gt;</button>
                 </article>
               </section>
             </Link>
-          ))}
-        </section>
+          ))
+        ) : (
+          <p>Nenhum resultado encontrado para os filtros aplicados.</p>
+        )}
       </section>
-    </>
+    </section>
   );
 };
-

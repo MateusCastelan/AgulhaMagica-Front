@@ -53,7 +53,7 @@ export default function CreateArticle() {
       name: 'article_img', 
       type: 'text', 
       label: 'URL da imagem:', 
-      required: true 
+      // required: true 
     },
     { 
       id: 7, 
@@ -87,6 +87,29 @@ export default function CreateArticle() {
       type: 'text',
       required: true 
     },
+    { 
+      id: 12, 
+      name: 'article_difficulty', 
+      type: 'select',
+      label: 'Dificuldade:', 
+      options: [ 
+        { value: 'iniciante', label: 'Iniciante' },
+        { value: 'intermediario', label: 'Intermediário' },
+        { value: 'avancado', label: 'Avançado' }
+      ],
+      required: true 
+    },
+    { 
+      id: 13, 
+      name: 'article_type', 
+      type: 'select', 
+      label: 'Tipo:', 
+      options: [ 
+        { value: 'roupa', label: 'Roupa' },
+        { value: 'acessorio', label: 'Acessório' }
+      ],
+      required: true 
+    }
   ];
 
   const handleSubmit = async (formData) => {
