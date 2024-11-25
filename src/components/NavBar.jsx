@@ -23,7 +23,17 @@ export const NavBar = () => {
             </Link>
             <Link href="/contador">
               <li>Contador</li>
-            </Link> 
+            </Link>
+
+            {user ?(
+              <>
+                <li onClick={logout}>Logout</li>
+              </>
+            ) : (
+              <Link href="/login">
+                <li>Login</li>
+              </Link>
+            )}
 
             {user && user.author_level === 'admin' ?  (
               <>
@@ -35,9 +45,7 @@ export const NavBar = () => {
                 <li onClick={logout}>Logout</li>
               </>
             ) : (
-              <Link href="/login">
-                <li>Login</li>
-              </Link>
+              null
             )}
 
           </ul>
