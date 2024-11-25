@@ -25,7 +25,7 @@ export const NavBar = () => {
               <li>Contador</li>
             </Link> 
 
-            {user ? (
+            {user && user.author_level === 'admin' ?  (
               <>
                 {(
                   <Link href="/admin">
