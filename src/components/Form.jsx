@@ -51,10 +51,6 @@ export const Form = ({ type, formTitle, formFields, buttonLabel, onSubmit }) => 
     return formType === 'Article' ? styles.mainCtnArticle : styles.mainContainer;
   };
 
-  const getContainerClassName = (formType) => {
-    return formType === 'Article' ? styles.cntArticle : styles.container;
-  };
-
   const getSectionClassName = (field) => {
     if (field.type === 'checkbox') {
       return styles.check;
@@ -75,7 +71,7 @@ export const Form = ({ type, formTitle, formFields, buttonLabel, onSubmit }) => 
 
   return (
     <section className={getMainContainerClassName(type)}>
-      <article className={getContainerClassName(type)}>
+      <article className={styles.container}>
         <form
           method="post"
           encType="multipart/form-data"
@@ -85,9 +81,11 @@ export const Form = ({ type, formTitle, formFields, buttonLabel, onSubmit }) => 
           <h1 className={styles.title}>{formTitle}</h1>
           {formFields.map((field) => (
             <section key={field.id} className={getSectionClassName(field)}>
+              {/* Text, Hidden, Email, etc. */}
               {field.type !== 'checkbox' &&
                 field.type !== 'file' &&
-                field.type !== 'textarea' && (
+                field.type !== 'textarea' &&
+                field.type !== 'select' && (
                   <>
                     <input
                       type={field.type}
@@ -105,12 +103,16 @@ export const Form = ({ type, formTitle, formFields, buttonLabel, onSubmit }) => 
                     </label>
                   </>
                 )}
+
+              {/* Checkbox */}
               {field.type === 'checkbox' && (
                 <>
                   <label htmlFor={field.name}>{field.label}</label>
                   <input type={field.type} id={field.name} name={field.name} />
                 </>
               )}
+
+              {/* File Upload */}
               {field.type === 'file' && (
                 <>
                   <label htmlFor={field.name}>{field.label}</label>
@@ -122,17 +124,40 @@ export const Form = ({ type, formTitle, formFields, buttonLabel, onSubmit }) => 
                   />
                 </>
               )}
+
               {field.type === 'textarea' && (
                 <>
+                  <div className={styles.editorContainer}>
+                    <label htmlFor={field.name}>{field.label}</label>
+                    <Editor
+                      editorState={editorStates[field.name]}
+                      onEditorStateChange={(editorState) =>
+                        handleEditorChange(field.name, editorState)
+                      }
+                      wrapperClassName={styles.editorWrapper}
+                      editorClassName={styles.editor}
+                    />
+                  </div>
+                </>
+              )}
+              {field.type === 'select' && (
+                <>
                   <label htmlFor={field.name}>{field.label}</label>
-                  <Editor
-                    editorState={editorStates[field.name]}
-                    onEditorStateChange={(editorState) =>
-                      handleEditorChange(field.name, editorState)
-                    }
-                    wrapperClassName={styles.editorWrapper}
-                    editorClassName={styles.editor}
-                  />
+                  <select
+                    id={field.name}
+                    name={field.name}
+                    required={field.required}
+                    defaultValue=""
+                  >
+                    <option value="" disabled hidden>
+                      Selecione uma opção
+                    </option>
+                    {field.options.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
                 </>
               )}
             </section>

@@ -76,16 +76,10 @@
   text-align: left;
 }
 
-.receitaGeral {
-  width: 100%; 
-  max-width: 800px; 
-  padding: 20px;
-  margin: 10px;
-  text-align: left;  
-  /*border-radius: 15px;
-  background-color: #FFFFFF;
-  border: 2px solid #98BFBE;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);*/
+.receitageral{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
 
 .receitaGeral h2 {

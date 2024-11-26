@@ -36,36 +36,80 @@ export default function CreateArticle() {
     },
     { 
       id: 4, 
-      name: 'article_featured', 
-      type: 'checkbox',
-      label: 'Destaque', 
-      value: 'true' 
+      name: 'article_materials', 
+      type: 'textarea', 
+      label: 'Materiais:', 
+      required: true 
     },
     { 
       id: 5, 
       name: 'article_body', 
       type: 'textarea', 
-      label: 'Conteúdo:', 
+      label: 'Execução:', 
       required: true 
     },
     { 
       id: 6, 
+      name: 'article_img', 
+      type: 'text', 
+      label: 'URL da imagem:', 
+      // required: true 
+    },
+    { 
+      id: 7, 
       name: 'article_author_email', 
       type: 'hidden', 
       defaultValue: user ? user.author_email : '' 
     },
     { 
-      id: 7, 
+      id: 8, 
       name: 'article_author_id', 
       type: 'hidden', 
       defaultValue: user ? user._id : '' 
     },
     { 
-      id: 8, 
+      id: 9, 
       name: 'article_author_name', 
       type: 'hidden', 
       defaultValue: user ? user.author_name : '' 
     },
+    { 
+      id: 10, 
+      name: 'article_real_author_name', 
+      label: 'Nome do Autor(a):', 
+      type: 'text',
+      required: true 
+    },
+    { 
+      id: 11, 
+      name: 'article_fonte', 
+      label: 'URL da Fonte:', 
+      type: 'text',
+      required: true 
+    },
+    { 
+      id: 12, 
+      name: 'article_difficulty', 
+      type: 'select',
+      label: 'Dificuldade:', 
+      options: [ 
+        { value: 'iniciante', label: 'Iniciante' },
+        { value: 'intermediario', label: 'Intermediário' },
+        { value: 'avancado', label: 'Avançado' }
+      ],
+      required: true 
+    },
+    { 
+      id: 13, 
+      name: 'article_type', 
+      type: 'select', 
+      label: 'Tipo:', 
+      options: [ 
+        { value: 'roupa', label: 'Roupa' },
+        { value: 'acessorio', label: 'Acessório' }
+      ],
+      required: true 
+    }
   ];
 
   const handleSubmit = async (formData) => {
@@ -85,7 +129,7 @@ export default function CreateArticle() {
         <NavBar />
         <Form
           type={"Article"}
-          formTitle="Cadastro de Artigos"
+          formTitle="Cadastro de Receitas"
           formFields={formFields}
           buttonLabel="Cadastrar"
           onSubmit={handleSubmit}

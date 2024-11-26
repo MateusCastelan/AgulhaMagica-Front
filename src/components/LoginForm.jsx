@@ -30,7 +30,7 @@ export const LoginForm = () => {
 
       if (response.status === 200) {
         checkAuthentication();
-        router.push('/admin');
+        router.push('/');
       } else {
         console.error('Credenciais inválidas', response.data);
       }
@@ -65,11 +65,10 @@ export const LoginForm = () => {
         <section className={styles.registerLink}>
           <p>
             Não tem uma conta?
-            <Link href="admin/users/createUser" className={styles.createContainer}>
-                <i className='bx bx-plus bx-sm'></i>
-                Cadastrar
-            </Link>
           </p>
+          <Link href="admin/users/createUser" className={styles.createContainer}>
+            Cadastrar
+          </Link>
         </section>
       </form>
     </article>

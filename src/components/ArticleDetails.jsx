@@ -4,63 +4,60 @@ import styles from '@/styles/Receita.module.css';
 export const ArticleDetails = ({ article }) => {
   return (
     <div className={styles.receita}>
-      <Titulo titulo={article.article_title} />
-      <div className={styles.section}>
-        <Imagem imagem={article.article_image || '/bg.jpg'} />
-        <Material 
-          material={article.article_materials} 
-          likedCount={article.article_liked_count}
-          articleId={article._id}
+      {/* Title Section */}
+      <div className={styles.titulo}>
+        <p>{article.article_title}</p>
+      </div>
+
+
+      <div className={styles.imgMaterialContainer}>
+        {/* Image Section */}
+        <div className={styles.imagemContainer}>
+          <img
+            src={article.article_img || '/bg.jpg'}
+            alt={article.article_title}
+            className={styles.imagem}
+          />
+        </div>
+
+        {/* Article Materials Section */}
+        <div className={styles.material}>
+          <h2>Materiais</h2>
+          <div
+            dangerouslySetInnerHTML={{ __html: article.article_materials }}
+          />
+          <LikeButton
+            articleId={article._id}
+            initialLikedCount={article.article_liked_count}
+          />
+        </div>
+      </div>
+
+      {/* Article Body Section */}
+      <div className={styles.receitaGeral}>
+        <h2>Execução</h2>
+        <br></br>
+        <div
+          dangerouslySetInnerHTML={{ __html: article.article_body }}
         />
       </div>
-      <ReceitaGeral 
-        receita={article.article_body}
-      />
-      <Autor 
-        author={article.article_author_name} 
-        email={article.article_author_email} 
-        publishedDate={article.article_published_date}
-      />
-    </div>
-  );
-};
-
-const Titulo = ({ titulo }) => (
-  <div className={styles.titulo}>
-    <p>{titulo}</p>
-  </div>
-);
-
-const Imagem = ({ imagem }) => (
-  <div className={styles.imagemContainer}>
-    <img
-      src={imagem}
-      alt="Imagem Artigo"
-      className={styles.imagem}
-    />
-  </div>
-);
-
-const Material = ({ material, likedCount, articleId }) => {
-  const [liked, setLiked] = useState(false);
-  const [count, setCount] = useState(likedCount);
-
-  const handleLikeClick = () => {
-    setLiked(!liked);
-    setCount(liked ? count - 1 : count + 1);
-  };
-
-  return (
-    <div className={styles.material}>
-      <h2>Materiais</h2>
       
-      <div dangerouslySetInnerHTML={{ __html: material }} />
-      <div className={styles.icones}>
-        <button className={styles.likeButton} onClick={handleLikeClick}>
-          {liked ? '❤️ Liked' : '🤍 Like'}
-        </button>
-        <span>{count}</span>
+      {/* Author Information Section */}
+      <div className={styles.autor}>
+        <div>
+          <p className={styles.dataTitle}>Autor(a)</p>
+          <p>{article.article_real_author_name}</p>
+        </div>
+        <div>
+          <p className={styles.dataTitle}>Fonte</p>
+          <a href={article.article_fonte}>Clique Aqui!</a>
+        </div>
+        <div>
+          <p className={styles.dataTitle}>Data de Publicação</p>
+          <p>{new Date(article.article_published_date).toLocaleDateString()}</p>
+        </div>
       </div>
+
     </div>
   );
 };

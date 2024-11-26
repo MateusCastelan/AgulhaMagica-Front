@@ -15,17 +15,27 @@ export const NavBar = () => {
       <section className={styles.navContainer}>
         <nav>
           <ul>
+            <Link href="/">
+              <li>Receitas</li>
+            </Link>
             <Link href="/tutorialpontos">
               <li>Tutorial de Pontos</li>
             </Link>
             <Link href="/contador">
               <li>Contador</li>
             </Link>
-            <Link href="/perfil">
-              <li>Receitas</li>
-            </Link>
 
-            {user ? (
+            {user ?(
+              <>
+                <li onClick={logout}>Logout</li>
+              </>
+            ) : (
+              <Link href="/login">
+                <li>Login</li>
+              </Link>
+            )}
+
+            {user && user.author_level === 'admin' ?  (
               <>
                 {(
                   <Link href="/admin">
@@ -35,11 +45,8 @@ export const NavBar = () => {
                 <li onClick={logout}>Logout</li>
               </>
             ) : (
-              <Link href="/login">
-                <li>Login</li>
-              </Link>
+              null
             )}
-
 
           </ul>
         </nav>
