@@ -12,17 +12,20 @@
   padding: 20px;
   background-color: #98BFBE;
   border-radius: 25px;
-  margin-bottom: 40px;  /* Adicionado espaçamento abaixo do título */
+  margin-bottom: 40px;  
+  width: 100%; 
+  max-width: 600px;  
 }
 
 .section {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;  
   margin-bottom: 60px;
   width: 100%;
-  gap: 40px;  /* Aumentado o espaçamento entre os itens */
+  max-width: 800px;  
+  gap: 40px;  
 }
 
 .imagemContainer { 
@@ -32,65 +35,92 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px; /* Adiciona preenchimento para a borda */
-  background-color: #98BFBE; /* Define a cor da borda */
-  border-radius: 15px; /* Mantém o arredondamento da borda */
-  box-sizing: border-box; /* Inclui o preenchimento e a borda no tamanho total */
+  padding: 10px; 
+  background-color: #98BFBE;
+  border-radius: 15px; 
+  box-sizing: border-box; 
 } 
   
 .imagem { 
   width: 100%; 
   height: 100%;
-  border-radius: 15px; /* Garante que a imagem siga o arredondamento da borda */
+  border-radius: 15px; 
   display: block; 
   position: relative;
   z-index: 1; 
 }
 
-
 .material {
+  width: 100%; 
   max-width: 300px; 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;  /* Alinha o conteúdo à esquerda */
-  background-color: #fff; /* Fundo branco */
-  padding: 20px; /* Adiciona preenchimento */
-  border-radius: 15px; /* Borda arredondada */
-  border: 2px solid #98BFBE; /* Borda sólida */
+  align-items: flex-start;  
+  background-color: #fff;
+  padding: 20px; 
+  /* border-radius: 15px; 
+  border: 2px solid #98BFBE;  */
+  margin-bottom: 0; 
 }
 
 .material h2 {
   font-size: 24px;
-  margin-bottom: 20px;
-  text-align: left; /* Alinha o texto à esquerda */
+  margin-bottom: 10px; 
+  text-align: left;
 }
 
 .material p {
   font-size: 18px;
   line-height: 1.5;
-  margin: 10px 0; /* Adiciona espaçamento entre os parágrafos */
-  text-align: left; /* Alinha o texto à esquerda */
+  margin: 5px 0; 
+  text-align: left;
 }
 
-.receitageral{
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-  
+.receitaGeral {
+  width: 100%; 
+  max-width: 800px; 
+  padding: 20px;
+  margin: 10px;
+  text-align: left;  
+  /*border-radius: 15px;
+  background-color: #FFFFFF;
+  border: 2px solid #98BFBE;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);*/
 }
 
-.autor{
-  font-size: small;
+.receitaGeral h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.receitaGeral .conteudo {
+  margin-bottom: 20px; 
+}
+
+.receitaGeral p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+.autor p {
+  font-size: 15px;
+  line-height: 1.0;
+  margin: 5px 0; 
+  text-align: left; 
 }
 
 .icones {
   display: flex;
   justify-content: center;  
+  align-items: center;
   margin-top: 10px;
 }
 
 .icones span {
   margin: 0 5px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 button.likeButton {
@@ -105,5 +135,5 @@ button.likeButton {
 }
 
 button.likeButton:hover {
-  background-color: #7aa8a7;
+  background-color: #7aa8a7;
 }

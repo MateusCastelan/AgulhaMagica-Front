@@ -21,7 +21,7 @@ export const NavBar = () => {
             <Link href="/contador">
               <li>Contador</li>
             </Link>
-            <Link href="/geral">
+            <Link href="/perfil">
               <li>Receitas</li>
             </Link>
 

@@ -1,0 +1,249 @@
+.perfilContainer { 
+  display: flex; 
+  flex-direction: row; 
+  align-items: flex-start; 
+  padding: 20px; 
+  margin: 20px; 
+} 
+
+.perfilEsquerda { 
+  flex: 1; 
+  text-align: left; 
+  background-color: #fff; 
+  padding: 20px; 
+  border-radius: 15px; 
+  margin-right: 20px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  width: 300px; 
+}
+
+.perfilDireita { 
+  flex: 2; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between;
+} 
+
+.botaoSair { 
+  background-color: #d9534f; 
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  cursor: pointer;
+  width: 350px; 
+  text-align: center;
+} 
+
+.tituloContainer { 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  margin-bottom: 20px; 
+  width: 350px; 
+  
+} 
+
+.imagemTitulo { 
+  border-radius: 50%; 
+  width: 180px; 
+  height: 180px; 
+  margin-bottom: 10px;
+} 
+
+.tituloContainer p { 
+  font-size: 18px; 
+  text-align: center;
+  width: 100%; 
+  border-radius: 25px; 
+  background-color: #98BFBE; 
+  border: 2px solid #98BFBE; 
+  margin-bottom: 20px;
+}
+
+.biografia { 
+  width: 350px; 
+  height: 300px; 
+  border-radius: 15px; 
+  background-color: #98BFBE; 
+  border: 2px solid #98BFBE; 
+  margin-bottom: 20px; 
+}
+
+.biografia p { 
+  font-size: 18px; 
+  text-align: center;
+  width: 100%; 
+  border-radius: 25px; 
+  background-color: #98BFBE; 
+  border: 2px solid #98BFBE; 
+  margin-bottom: 20px;
+}  
+
+
+.caixaBio { 
+  background-color: #E8F4F8; 
+  padding: 10px; 
+  border-radius: 10px; 
+  border: 1px solid #98BFBE; 
+  width: 200px; 
+  height: 150px; 
+  overflow-y: auto; 
+} 
+
+.caixaBio p { 
+  line-height: 1.5; 
+  margin: 0; 
+} 
+
+.detalhesSection,
+.itensSection {
+  width: 100%;
+}
+
+.dadosPessoais { 
+  width: 100%; 
+  margin-bottom: 20px; 
+  background-color: #FAC97B; 
+  padding: 20px; 
+  border-radius: 15px; 
+  border: 2px solid #FAC97B; 
+} 
+
+.dadosPessoais p { 
+  font-size: 24px; 
+  text-align: center;  
+  width: 350px; 
+  border-radius: 25px; 
+  background-color: #98BFBE; 
+  border: 2px solid #98BFBE; 
+  margin-bottom: 10px;
+} 
+
+.dadosPessoais label { 
+  font-size: 24px; 
+  display: block; 
+  font-size: 18px; 
+  line-height: 1.5; 
+} 
+
+.inputsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  width: 30%; 
+}
+
+.caixaTexto { 
+  font-size: 14px; 
+  padding: 10px; 
+  margin-top: 5px; 
+  border-radius: 5px;  
+  background-color: #98BFBE; 
+  border: 1px solid #98BFBE;
+  text-align: center; /* Centraliza o texto dos botões */
+} 
+
+.salvos { 
+  width: 100%; 
+  background-color: #FAC97B; 
+  padding: 20px;
+  border-radius: 15px; 
+  border: 2px solid #FAC97B; 
+} 
+
+.salvos p { 
+  font-size: 24px; 
+  text-align: center;  
+  width: 350px; 
+  border-radius: 15px; 
+  background-color: #98BFBE; 
+  border: 2px solid #98BFBE; 
+  margin-bottom: 10px;
+} 
+
+.itensContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.itemGroup {
+  display: flex;
+  flex-direction: column;
+  width: 30%; 
+}
+
+.imagemItemSalvo { 
+  border-radius: 5px; 
+  width: 100px; 
+  height: 100px; 
+  margin-top: 5px; 
+} 
+
+.cardContainer { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  width: 100%; 
+} 
+
+.groupContainer { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+  justify-content: center; 
+  width: 100%; 
+} 
+
+.card { 
+  display: flex; 
+  flex-direction: column; 
+  width: 300px; 
+  border-radius: 15px; 
+  background-color: #fff; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
+} 
+
+.imageContainer img { 
+  width: 100%; 
+  height: auto; 
+  border-bottom: 1px solid #ddd; 
+} 
+
+.cardInfo { 
+  padding: 20px; 
+} 
+
+.tag { 
+  display: inline-block; 
+  padding: 5px 10px; 
+  border-radius: 3px; 
+  background-color: #98BFBE; 
+  color: white; 
+  font-size: 14px; 
+  margin-bottom: 10px; 
+} 
+
+.cardInfo h3 { 
+  font-size: 20px; 
+  margin-bottom: 10px; 
+} 
+
+.cardInfo button { 
+  background-color: #98BFBE; 
+  color: white; 
+  border: none; 
+  padding: 10px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  align-self: flex-end; 
+}
