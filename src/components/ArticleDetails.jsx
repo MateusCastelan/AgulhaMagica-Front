@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '@/styles/Receita.module.css';
+import styles from '@/styles/Article.module.css';
 import { LikeButton } from './LikeButton';
 
 export const ArticleDetails = ({ article }) => {
