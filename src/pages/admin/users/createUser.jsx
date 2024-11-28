@@ -66,8 +66,14 @@ export default function CreateUser() {
     { 
       id: 8, 
       name: 'author_bio', 
-      type: 'textarea', 
+      type: 'text', 
       label: 'Biografia:', 
+    },
+    { 
+      id: 9, 
+      name: 'author_pic', 
+      type: 'text', 
+      label: 'Link Foto de Perfil:', 
     },
   ];
 

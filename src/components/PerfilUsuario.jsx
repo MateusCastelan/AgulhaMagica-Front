@@ -43,7 +43,7 @@ const PerfilUsuario = () => {
   return (
     <div className={styles.perfilContainer}>
       <div className={styles.perfilEsquerda}>
-        <Titulo nome={user?.author_user || null} fotoPerfil={usuario.fotoPerfil} biografia={user?.author_bio || null} />
+        <Titulo nome={user?.author_user || null} fotoPerfil={user?.author_pic} biografia={user?.author_bio || null} />
         <button className={styles.botaoSair}>Sair</button>
       </div>
       <div className={styles.perfilDireita}>

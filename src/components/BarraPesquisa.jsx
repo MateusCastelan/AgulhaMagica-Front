@@ -60,7 +60,7 @@ export const BarraPesquisa = () => {
           value={searchDifficulty}
           onChange={handleDifficultyChange}
         >
-          <option value="">Dificuldade</option>
+          <option value="">Todas as Dificuldades</option>
           <option value="Iniciante">Iniciante</option>
           <option value="Intermediario">Intermediário</option>
           <option value="Avancado">Avançado</option>
@@ -70,7 +70,7 @@ export const BarraPesquisa = () => {
           value={searchType}
           onChange={handleTypeChange}
         >
-          <option value="">Categoria</option>
+          <option value="">Todas as Categorias</option>
           <option value="Roupa">Roupa</option>
           <option value="Acessorio">Acessórios</option>
         </select>

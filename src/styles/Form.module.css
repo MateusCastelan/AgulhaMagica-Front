@@ -5,6 +5,7 @@
   flex-direction: column;
   background-color: rgba(151, 172, 193, 0.4);
   opacity: 0.75;
+  height: fit-content;
 }
 
 /* Containers */
