@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 
@@ -9,6 +9,19 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const router = useRouter();
 
+  // useEffect(() => {
+  //   checkAuthentication();
+  // }, []);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    } else {
+      checkAuthentication();
+    }
+  }, []);
+
   const checkAuthentication = async () => {
     try {
         const response = await axios.get('http://localhost:8080/api/users/session', {
@@ -16,6 +29,7 @@ export const AuthProvider = ({ children }) => {
           });
       if (response.data.user) {
         setUser(response.data.user);
+        localStorage.setItem("user", JSON.stringify(response.data.user));
       } else {
         setUser(null);
       }
@@ -30,7 +44,7 @@ export const AuthProvider = ({ children }) => {
         withCredentials: true,
       });
       setUser(null);
-      // Redireciona a página de login
+      localStorage.removeItem("user");
       router.replace('/login');
     } catch (error) {
       console.error("Erro ao fazer logout:", error.message);

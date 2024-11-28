@@ -39,6 +39,36 @@ export default function CreateUser() {
       label: 'Senha:', 
       required: true 
     },
+    { 
+      id: 5, 
+      name: 'author_address', 
+      type: 'text', 
+      label: 'Endereço:', 
+    },
+    { 
+      id: 6, 
+      name: 'author_instagram', 
+      type: 'text', 
+      label: '@ Instagram:', 
+    },
+    { 
+      id: 7, 
+      name: 'author_occupation', 
+      type: 'text', 
+      label: 'Ocupação:', 
+    },
+    { 
+      id: 7, 
+      name: 'author_pinterest', 
+      type: 'text', 
+      label: 'Pinterest:', 
+    },
+    { 
+      id: 8, 
+      name: 'author_bio', 
+      type: 'textarea', 
+      label: 'Biografia:', 
+    },
   ];
 
   const handleSubmit = async (formData) => {

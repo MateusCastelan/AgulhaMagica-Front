@@ -27,6 +27,9 @@ export const NavBar = () => {
 
             {user ?(
               <>
+                <Link href="/perfil">
+                  <li>Perfil</li>
+                </Link>
                 <li onClick={logout}>Logout</li>
               </>
             ) : (

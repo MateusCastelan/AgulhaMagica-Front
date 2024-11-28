@@ -15,6 +15,7 @@
 
 import React from 'react';
 import styles from '@/styles/Perfil.module.css';
+import { useAuth } from './AuthContext';
 
 const usuarioExemplo = {
   nome: "João Silva",
@@ -34,17 +35,19 @@ const usuarioExemplo = {
   ]
 };
 
+
 const PerfilUsuario = () => {
   const usuario = usuarioExemplo;
+  const { user } = useAuth();
 
   return (
     <div className={styles.perfilContainer}>
       <div className={styles.perfilEsquerda}>
-        <Titulo nome={usuario.nome} fotoPerfil={usuario.fotoPerfil} biografia={usuario.biografia} />
+        <Titulo nome={user?.author_user || null} fotoPerfil={usuario.fotoPerfil} biografia={user?.author_bio || null} />
         <button className={styles.botaoSair}>Sair</button>
       </div>
       <div className={styles.perfilDireita}>
-        <DetalhesPessoais usuario={usuario} />
+        <DetalhesPessoais user={user}/>
         <ItensSalvos itens={usuario.itensSalvos} />
       </div>
       
@@ -61,39 +64,42 @@ const Titulo = ({ nome, fotoPerfil, biografia }) => (
     />
     <div>
       <p className={styles.nome}>{nome}</p>
-      <p className={styles.biografia}>{biografia}</p>
+      <p
+        className={styles.biografia}
+        dangerouslySetInnerHTML={{ __html: biografia }}
+      ></p>
     </div>
   </div>
 );
 
-const DetalhesPessoais = ({ usuario }) => (
+const DetalhesPessoais = ({ user }) => (
   <section className={styles.detalhesSection}>
     <div className={styles.dadosPessoais}>
       <p>Dados Pessoais</p>
       <div className={styles.inputsContainer}>
         <div className={styles.inputGroup}>
           <label>Nome Completo</label>
-          <button className={styles.caixaTexto}>{usuario.nomeCompleto}</button>
+          <button className={styles.caixaTexto}>{user?.author_name || null}</button>
         </div>
         <div className={styles.inputGroup}>
           <label>Endereço</label>
-          <button className={styles.caixaTexto}>{usuario.endereco}</button>
+          <button className={styles.caixaTexto}>{user?.author_address || null}</button>
         </div>
         <div className={styles.inputGroup}>
           <label>E-mail</label>
-          <button className={styles.caixaTexto}>{usuario.email}</button>
+          <button className={styles.caixaTexto}>{user?.author_email || null}</button>
         </div>
         <div className={styles.inputGroup}>
           <label>Instagram</label>
-          <button className={styles.caixaTexto}>{usuario.instagram}</button>
+          <button className={styles.caixaTexto}>{user?.author_instagram || null}</button>
         </div>
         <div className={styles.inputGroup}>
           <label>Ocupação</label>
-          <button className={styles.caixaTexto}>{usuario.ocupacao}</button>
+          <button className={styles.caixaTexto}>{user?.author_occupation || null}</button>
         </div>
         <div className={styles.inputGroup}>
           <label>Pinterest</label>
-          <button className={styles.caixaTexto}>{usuario.pinterest}</button>
+          <button className={styles.caixaTexto}>{user?.author_pinterest || null}</button>
         </div>
       </div>
     </div>
