@@ -1,60 +1,56 @@
-
-// export const PerfilUsuario = ({ usuario }) => {
-//   return (
-//     <div className={styles.perfil}>
-//       <Titulo nome={usuario.nome} />
-//       <div className={styles.section}>
-//         <Imagem fotoPerfil={usuario.fotoPerfil || '/foto-padrao.jpg'} />
-//         <Biografia biografia={usuario.biografia} />
-//       </div>
-//       <DetalhesPessoais usuario={usuario} />
-//       <ItensSalvos itens={usuario.itensSalvos} />
-//     </div>
-//   );
-// };
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '@/styles/Perfil.module.css';
 import { useAuth } from './AuthContext';
-
-const usuarioExemplo = {
-  nome: "João Silva",
-  fotoPerfil: "/Imagem-exemplo.png",
-  biografia: "Apaixonado por tecnologia e design, sempre em busca de novos desafios.",
-  nomeCompleto: "João Carlos da Silva",
-  endereco: "Rua das Flores, 456, São Paulo, SP, Brasil",
-  email: "joao.silva@example.com",
-  instagram: "@joaosilva",
-  ocupacao: "Desenvolvedor Full Stack",
-  pinterest: "pinterest.com/joaosilva",
-  itensSalvos: [
-    {
-      imagem: "/Imagem-exemplo.png",
-      titulo: "Curso de React (Intermediário)"
-    }
-  ]
-};
-
+import axios from 'axios';
+import Link from 'next/link';
 
 const PerfilUsuario = () => {
-  const usuario = usuarioExemplo;
   const { user } = useAuth();
+  const [likedArticles, setLikedArticles] = useState([]);
+
+  useEffect(() => {
+    const fetchLikedArticles = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/users/session', { withCredentials: true });
+        if (response.data.user) {
+          const userId = response.data.user._id;
+          const userResponse = await axios.get(`http://localhost:8080/api/users/${userId}`);
+          const likedArticleIds = userResponse.data.foundUser.likedArticles;
+
+          if (likedArticleIds.length > 0) {
+            const articlesResponse = await Promise.all(
+              likedArticleIds.map(id => axios.get(`http://localhost:8080/api/articles/${id}`))
+            );
+            setLikedArticles(articlesResponse.map(res => res.data.foundArticle));
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching liked articles:', error);
+      }
+    };
+
+    fetchLikedArticles();
+  }, []);
 
   return (
     <div className={styles.perfilContainer}>
       <div className={styles.perfilEsquerda}>
-        <Titulo nome={user?.author_user || null} fotoPerfil={user?.author_pic} biografia={user?.author_bio || null} />
+        <Titulo 
+          nome={user?.author_name || "Nome do Usuário"} 
+          fotoPerfil={user?.author_image || '/default-profile.jpg'} 
+          biografia={user?.author_biography || "Biografia não disponível"} 
+        />
         <button className={styles.botaoSair}>Sair</button>
       </div>
       <div className={styles.perfilDireita}>
-        <DetalhesPessoais user={user}/>
-        <ItensSalvos itens={usuario.itensSalvos} />
+        <DetalhesPessoais user={user} />
+        <ItensSalvos itens={likedArticles} />
       </div>
-      
     </div>
   );
 };
 
+// Subcomponents
 const Titulo = ({ nome, fotoPerfil, biografia }) => (
   <div className={styles.tituloContainer}>
     <img
@@ -111,26 +107,21 @@ const ItensSalvos = ({ itens }) => (
     <p>Salvos</p>
     <div className={styles.itensContainer}>
       {itens.map((item) => (
-        <a key={item._id} href={`#`}>
-          <section className={styles.card}>
-
-            <section className={styles.imageContainer}>
-              <img src={item.imagem || '/bg.jpg'} alt="Imagem do Item" />
-            </section>
-
-            <article className={styles.cardInfo}>
-              <span className={styles.tag}>{item.dificuldade}</span>
-              <h3>{item.titulo}</h3>
-            </article>
-
+        <Link key={item._id} href={`admin/articles/read/${item._id}`}>
+        <section className={styles.card}>
+          <section className={styles.imageContainer}>
+            <img src={item.article_img || '/bg.jpg'} alt="Imagem da Receita" />
           </section>
-        </a>
+          <article className={styles.cardInfo}>
+            <span className={styles.tag}>{item.article_difficulty}</span>
+            <h3>{item.article_title}</h3>
+            <button>&gt;</button>
+          </article>
+        </section>
+      </Link>
       ))}
     </div>
   </section>
 );
 
 export default PerfilUsuario;
-
-
-
