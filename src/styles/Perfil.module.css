@@ -6,17 +6,59 @@
   margin: 20px; 
 } 
 
-.perfilEsquerda { 
-  flex: 1; 
-  text-align: left; 
-  background-color: #fff; 
-  padding: 20px; 
-  border-radius: 15px; 
-  margin-right: 20px; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  width: 300px; 
+.perfilEsquerda {
+  flex: 1;
+  text-align: center; 
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px; 
+}
+
+.imagemTitulo {
+  border-radius: 50%;
+  width: 150px; 
+  height: 150px;
+  margin-bottom: 15px; 
+}
+
+.nome {
+  font-size: 20px; 
+  font-weight: bold;
+  margin-bottom: 10px; 
+}
+
+.botaoSair {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px; 
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: block; 
+  width: calc(100% - 20px);
+  max-width: 350px;
+  margin: 0 auto;
+  box-sizing: border-box; 
+}
+
+.biografia {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.5;
+  background-color: #98BFBE;
+  padding: 10px;
+  border-radius: 10px;
+  display: block;
+  width: calc(100% - 20px); 
+  max-width: 350px; 
+  margin: 0 auto; 
+  box-sizing: border-box; 
 }
 
 .perfilDireita { 
@@ -26,16 +68,6 @@
   justify-content: space-between;
 } 
 
-.botaoSair { 
-  background-color: #d9534f; 
-  color: white; 
-  border: none; 
-  padding: 10px 20px; 
-  border-radius: 5px; 
-  cursor: pointer;
-  width: 350px; 
-  text-align: center;
-} 
 
 .tituloContainer { 
   display: flex;
