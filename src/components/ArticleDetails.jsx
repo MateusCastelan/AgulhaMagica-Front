@@ -1,9 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '@/styles/Article.module.css';
 import { LikeButton } from './LikeButton';
+import axios from 'axios'
 
 export const ArticleDetails = ({ article }) => {
   const [isLiked, setIsLiked] = useState(false);
+
+  useEffect(() => {
+    const fetchUserStatus = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/users/session', { withCredentials: true });
+        if (response.data.user) {
+          const userId = response.data.user._id;
+          const user = await axios.get(`http://localhost:8080/api/users/${userId}`);
+          const likedArticles = user.data.foundUser.likedArticles;
+          console.log(likedArticles)
+          setIsLiked(likedArticles.includes(article._id));
+        }
+      } catch (error) {
+        console.error('Erro ao verificar o status de like do usuário:', error.message);
+      }
+    };
+
+    fetchUserStatus();
+  }, [article._id]);
+
   
   return (
     <div className={styles.receita}>
