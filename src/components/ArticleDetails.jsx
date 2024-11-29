@@ -3,6 +3,8 @@ import styles from '@/styles/Receita.module.css';
 import { LikeButton } from './LikeButton';
 
 export const ArticleDetails = ({ article }) => {
+  const [isLiked, setIsLiked] = useState(false);
+  
   return (
     <div className={styles.receita}>
       {/* Title Section */}
@@ -27,10 +29,7 @@ export const ArticleDetails = ({ article }) => {
           <div
             dangerouslySetInnerHTML={{ __html: article.article_materials }}
           />
-          <LikeButton
-            articleId={article._id}
-            initialLikedCount={article.article_liked_count}
-          />
+          <LikeButton articleId={article._id} isLiked={isLiked} />
         </div>
       </div>
 

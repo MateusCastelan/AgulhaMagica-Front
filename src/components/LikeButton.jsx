@@ -3,23 +3,22 @@ import axios from 'axios';
 
 import styles from '@/styles/Article.module.css';
 
-export const LikeButton = ({ articleId, initialLikedCount }) => {
-  // const [likedCount, setLikedCount] = useState(initialLikedCount);
+export const LikeButton = ({ articleId, isLiked }) => {
+  const [liked, setLiked] = useState(isLiked);
 
-  // const handleLike = async () => {
-  //   try {
-  //     const response = await axios.post(`http://localhost:8080/api/articles/like/${articleId}`);
-  //     const updatedArticle = response.data.updatedArticle;
-  //     setLikedCount(updatedArticle.article_liked_count);
-  //   } catch (error) {
-  //     console.error('Erro ao adicionar like:', error.message);
-  //   }
-  // };
-
-  const [liked, setLiked] = useState(false);
-
-  const handleLikeClick = () => {
+  const handleLikeClick = async () => {
+    try {
+      if (!liked) {
+        await axios.post(`http://localhost:8080/api/users/likeArticle/${articleId}`,{}, { withCredentials: true });
+      } else {
+        await axios.post(`http://localhost:8080/api/users/unlikeArticle/${articleId}`,{}, { withCredentials: true });
+      }
+      setLiked(!liked);
+    } catch (error) {
+      console.error('Erro ao atualizar like:', error.message);
+    }
     setLiked(!liked);
+
   };
 
   return (
