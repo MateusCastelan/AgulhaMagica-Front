@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { Editor } from 'react-draft-wysiwyg';
 import { EditorState, convertToRaw } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
+import dynamic from 'next/dynamic';
 
 import styles from '@/styles/Form.module.css';
 
+const Editor = dynamic(
+  () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
+  { ssr: false }
+);
+
 export const Form = ({ type, formTitle, formFields, buttonLabel, onSubmit }) => {
-  // Initialize EditorState for textarea fields
   const [editorStates, setEditorStates] = useState(
     formFields.reduce((acc, field) => {
       if (field.type === 'textarea') {

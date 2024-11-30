@@ -38,7 +38,7 @@ const PerfilUsuario = () => {
         <Titulo 
           nome={user?.author_name || "Nome do Usuário"} 
           fotoPerfil={user?.author_pic || '/default-profile.jpg'} 
-          biografia={user?.author_biography || "Biografia não disponível"} 
+          biografia={user?.author_bio || "Biografia não disponível"} 
         />
         <button className={styles.botaoSair}>Sair</button>
       </div>

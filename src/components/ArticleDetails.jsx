@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styles from '@/styles/Article.module.css';
 import { LikeButton } from './LikeButton';
+import { useAuth } from './AuthContext';
 import axios from 'axios'
 
 export const ArticleDetails = ({ article }) => {
   const [isLiked, setIsLiked] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchUserStatus = async () => {
@@ -50,7 +52,10 @@ export const ArticleDetails = ({ article }) => {
           <div
             dangerouslySetInnerHTML={{ __html: article.article_materials }}
           />
-          <LikeButton articleId={article._id} isLiked={isLiked} />
+          {user? 
+          <LikeButton articleId={article._id} isLiked={isLiked} /> :
+          null
+          }
         </div>
       </div>
 

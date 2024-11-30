@@ -45,7 +45,6 @@ export const NavBar = () => {
                     <li>Admin</li>
                   </Link>
                 )}
-                <li onClick={logout}>Logout</li>
               </>
             ) : (
               null
