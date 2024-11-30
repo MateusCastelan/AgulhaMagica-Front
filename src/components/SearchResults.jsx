@@ -26,7 +26,7 @@ export const SearchResults = ({ keywords, difficulty, type }) => {
   }, [keywords, difficulty, type]);
 
   return (
-    <section className={styles.container}>
+    <section>
       <article className={styles.subTitle}>
         <h2>Resultados da Pesquisa</h2>
       </article>
