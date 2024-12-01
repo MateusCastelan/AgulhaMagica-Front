@@ -5,7 +5,7 @@ import axios from 'axios';
 import Link from 'next/link';
 
 const PerfilUsuario = () => {
-  const { user } = useAuth();
+  const { user,  logout  } = useAuth();
   const [likedArticles, setLikedArticles] = useState([]);
 
   useEffect(() => {
@@ -40,7 +40,11 @@ const PerfilUsuario = () => {
           fotoPerfil={user?.author_pic || '/default-profile.jpg'} 
           biografia={user?.author_bio || "Biografia não disponível"} 
         />
-        <button className={styles.botaoSair}>Sair</button>
+          <button 
+          className={styles.botaoSair} 
+          onClick={logout}>
+          Sair
+        </button>
       </div>
       <div className={styles.perfilDireita}>
         <DetalhesPessoais user={user} />
