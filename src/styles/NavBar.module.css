@@ -24,13 +24,13 @@
 }
 
 .navContainer {
-  width: 50%;
+  width: 100%;
 }
 
 .navContainer nav ul {
   display: flex;
   justify-content: flex-end;
-  margin-right: 10%;
+  margin-right: 5%;
 }
 
 .navContainer nav ul li {
